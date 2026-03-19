@@ -1,0 +1,6 @@
+1:1            # Square
+4:3            # Television Photography
+3:2            # Photography
+8:5            # Widescreen Displays
+16:9           # Widescreen Television
+21:9           # Ultrawide Cinematography
