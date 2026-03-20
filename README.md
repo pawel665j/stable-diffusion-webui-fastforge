@@ -10,6 +10,7 @@
 
 [![Release](https://img.shields.io/github/release/LeeAeron/fastforge.svg)](https://github.com/LeeAeron/stable-diffusion-webui-fastforge/releases/latest)
 
+
 **FastForge** is a custom build of the Stable Diffusion WebUI, designed for maximum performance—especially on systems with limited VRAM.
 
 ## 🔧 Key Differences from Official Forge WebUI
