@@ -463,9 +463,6 @@ class LoadedModel:
         return
 
     def model_load(self, model_gpu_memory_when_using_cpu_swap=-1):
-        import gc
-        torch.cuda.empty_cache()
-        gc.collect()
         patch_model_to = None
         do_not_need_cpu_swap = model_gpu_memory_when_using_cpu_swap < 0
 
@@ -613,14 +610,11 @@ def free_memory(memory_required, device, keep_loaded=[], free_all=False, model_c
         return
 
     else:
-        torch.cuda.empty_cache()
         return
 
 
 def _free_memory_smartpurge(memory_required, device, keep_loaded=[], free_all=False, model_changed=False, ignore_vram_offload=False):
     import gc
-    torch.cuda.empty_cache()
-    gc.collect()
     unloaded_model = False
 
     # Unload "abandoned" models (if they are not used anywhere else)
@@ -662,11 +656,9 @@ def _free_memory_smartpurge(memory_required, device, keep_loaded=[], free_all=Fa
             del m
             unloaded_model = True
 
-    # If at least one model was unloaded, clear the cache
+    # If at least one model was unloaded, clear the cache (single call is enough)
     if unloaded_model:
         soft_empty_cache()
-    # Clear unused objects and free RAM
-    torch.cuda.empty_cache()  # Clear GPU cache
 
     return unloaded_model
 
@@ -713,11 +705,9 @@ def _free_memory_smart(memory_required, device, keep_loaded=[], free_all=False, 
             del m
             unloaded_model = True
 
-    # If at least one model was unloaded, clear the cache
+    # If at least one model was unloaded, clear the cache (single call is enough)
     if unloaded_model:
         soft_empty_cache()
-    # Clear unused objects and free RAM
-    torch.cuda.empty_cache()  # Clear GPU cache
 
     return unloaded_model
 
@@ -746,16 +736,12 @@ def _free_memory_clear_always(memory_required, device, keep_loaded=[], free_all=
                 unloaded_model = True
 
     soft_empty_cache()
-    gc.collect()
-    torch.cuda.empty_cache()
 
     return unloaded_model
 
 
 def _free_memory_clear_full(memory_required, device, keep_loaded=[], free_all=True):
     import gc
-    torch.cuda.empty_cache()
-    gc.collect()
     unloaded_model = False
 
     # Unload abandoned models
@@ -779,8 +765,6 @@ def _free_memory_clear_full(memory_required, device, keep_loaded=[], free_all=Tr
                 unloaded_model = True
 
     soft_empty_cache()
-    gc.collect()
-    torch.cuda.empty_cache()
 
     return unloaded_model
 
@@ -791,7 +775,6 @@ def _free_memory_soft_cache(memory_required, device, keep_loaded=[], free_all=Fa
 
 
 def _free_memory_gpu_cache(memory_required, device, keep_loaded=[], free_all=False, model_changed=False, ignore_vram_offload=False):
-    torch.cuda.empty_cache()
     return
 
 
