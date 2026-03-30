@@ -391,50 +391,45 @@ except:
 from backend.operations_gguf import dequantize_tensor
 
 
-class ForgeOperationsGGUF(ForgeOperations):
+# Float8 support for FP8 models (flux1-dev-fp8, etc.)
+class ForgeOperationsBNB8bits(ForgeOperations):
+    """Optimized operations for float8_e4m3fn weights"""
     class Linear(torch.nn.Module):
-        def __init__(self, *args, **kwargs):
+        def __init__(self, in_features, out_features, *args, **kwargs):
             super().__init__()
+            self.in_features = in_features
+            self.out_features = out_features
             self.dummy = torch.nn.Parameter(torch.empty(1, device=current_device, dtype=current_dtype))
             self.weight = None
+            self.scale_weight = None
             self.bias = None
             self.parameters_manual_cast = current_manual_cast_enabled
 
         def _load_from_state_dict(self, state_dict, prefix, local_metadata, strict, missing_keys, unexpected_keys, error_msgs):
             if hasattr(self, 'dummy'):
-                computation_dtype = self.dummy.dtype
-                if computation_dtype not in [torch.float16, torch.bfloat16]:
-                    # GGUF cast only supports 16bits otherwise super slow
-                    computation_dtype = torch.float16
                 if prefix + 'weight' in state_dict:
-                    self.weight = state_dict[prefix + 'weight'].to(device=self.dummy.device)
-                    self.weight.computation_dtype = computation_dtype
+                    self.weight = torch.nn.Parameter(state_dict[prefix + 'weight'])
+                if prefix + 'scale_weight' in state_dict:
+                     self.scale_weight = torch.nn.Parameter(state_dict[prefix + 'scale_weight'])                    
                 if prefix + 'bias' in state_dict:
-                    self.bias = state_dict[prefix + 'bias'].to(device=self.dummy.device)
-                    self.bias.computation_dtype = computation_dtype
+                    self.bias = torch.nn.Parameter(state_dict[prefix + 'bias'].to(self.dummy))
                 del self.dummy
             else:
-                if prefix + 'weight' in state_dict:
-                    self.weight = state_dict[prefix + 'weight']
-                if prefix + 'bias' in state_dict:
-                    self.bias = state_dict[prefix + 'bias']
-            return
-
-        def _apply(self, fn, recurse=True):
-            for k, p in self.named_parameters(recurse=False, remove_duplicate=True):
-                setattr(self, k, utils.tensor2parameter(fn(p)))
-            return self
+                super()._load_from_state_dict(state_dict, prefix, local_metadata, strict, missing_keys, unexpected_keys, error_msgs)
 
         def forward(self, x):
-            if self.bias is not None and self.bias.dtype != x.dtype:
-                self.bias = utils.tensor2parameter(dequantize_tensor(self.bias).to(x.dtype))
-
-            if self.weight is not None and self.weight.dtype != x.dtype and getattr(self.weight, 'gguf_cls', None) is None:
-                self.weight = utils.tensor2parameter(self.weight.to(x.dtype))
-
-            weight, bias, signal = weights_manual_cast(self, x, weight_fn=dequantize_tensor, bias_fn=None, skip_bias_dtype=True)
-            with main_stream_worker(weight, bias, signal):
-                return torch.nn.functional.linear(x, weight, bias)
+            target_dtype = x.dtype
+            target_device = x.device
+            
+            # Fast path: dequantize once and cache for the entire forward pass
+            if self.weight.dtype == torch.float8_e4m3fn:
+                # Dequantize to computation dtype (bfloat16 for RTX 4060)
+                weight_dequant = self.weight.to(target_dtype).to(target_device)
+            else:
+                weight_dequant = self.weight.to(target_dtype).to(target_device)
+            
+            bias = self.bias.to(target_device, dtype=target_dtype) if self.bias is not None else None
+            return torch.nn.functional.linear(x, weight_dequant, bias)
 
 
 @contextlib.contextmanager
@@ -448,6 +443,8 @@ def using_forge_operations(operations=None, device=None, dtype=None, manual_cast
             operations = ForgeOperationsGGUF
         elif bnb_avaliable and bnb_dtype in ['nf4', 'fp4']:
             operations = ForgeOperationsBNB4bits
+        elif isinstance(bnb_dtype, torch.dtype) and bnb_dtype in [torch.float8_e4m3fn, torch.float8_e5m2]:
+            operations = ForgeOperationsBNB8bits
         else:
             operations = ForgeOperations
 
