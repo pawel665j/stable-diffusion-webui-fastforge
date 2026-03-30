@@ -393,7 +393,12 @@ from backend.operations_gguf import dequantize_tensor
 
 # Float8 support for FP8 models (flux1-dev-fp8, etc.)
 class ForgeOperationsBNB8bits(ForgeOperations):
-    """Optimized operations for float8_e4m3fn weights"""
+    """Optimized operations for float8_e4m3fn weights with caching"""
+    
+    # Class-level cache shared across all Linear layers for the entire model
+    _global_weight_cache = {}
+    _cache_enabled = True
+    
     class Linear(torch.nn.Module):
         def __init__(self, in_features, out_features, *args, **kwargs):
             super().__init__()
@@ -404,11 +409,15 @@ class ForgeOperationsBNB8bits(ForgeOperations):
             self.scale_weight = None
             self.bias = None
             self.parameters_manual_cast = current_manual_cast_enabled
+            # Generate unique key for this layer based on weight shape
+            self._weight_cache_key = None
 
         def _load_from_state_dict(self, state_dict, prefix, local_metadata, strict, missing_keys, unexpected_keys, error_msgs):
             if hasattr(self, 'dummy'):
                 if prefix + 'weight' in state_dict:
                     self.weight = torch.nn.Parameter(state_dict[prefix + 'weight'])
+                    # Create unique cache key from weight pointer and shape
+                    self._weight_cache_key = f"{prefix}weight_{self.weight.shape}_{id(self.weight)}"
                 if prefix + 'scale_weight' in state_dict:
                      self.scale_weight = torch.nn.Parameter(state_dict[prefix + 'scale_weight'])                    
                 if prefix + 'bias' in state_dict:
@@ -422,9 +431,30 @@ class ForgeOperationsBNB8bits(ForgeOperations):
             target_device = x.device
             
             # Fast path: dequantize once and cache for the entire forward pass
-            if self.weight.dtype == torch.float8_e4m3fn:
-                # Dequantize to computation dtype (bfloat16 for RTX 4060)
-                weight_dequant = self.weight.to(target_dtype).to(target_device)
+            if self.weight.dtype == torch.float8_e4m3fn and ForgeOperationsBNB8bits._cache_enabled:
+                # Check global cache first
+                if self._weight_cache_key and self._weight_cache_key in ForgeOperationsBNB8bits._global_weight_cache:
+                    cached = ForgeOperationsBNB8bits._global_weight_cache[self._weight_cache_key]
+                    if cached['dtype'] == target_dtype and cached['device'] == target_device:
+                        weight_dequant = cached['weight']
+                    else:
+                        # Re-cache for new dtype/device
+                        weight_dequant = self.weight.to(target_dtype).to(target_device)
+                        ForgeOperationsBNB8bits._global_weight_cache[self._weight_cache_key] = {
+                            'weight': weight_dequant,
+                            'dtype': target_dtype,
+                            'device': target_device
+                        }
+                else:
+                    # Dequantize to computation dtype (bfloat16 for RTX 4060)
+                    weight_dequant = self.weight.to(target_dtype).to(target_device)
+                    # Cache the result globally
+                    if self._weight_cache_key:
+                        ForgeOperationsBNB8bits._global_weight_cache[self._weight_cache_key] = {
+                            'weight': weight_dequant,
+                            'dtype': target_dtype,
+                            'device': target_device
+                        }
             else:
                 weight_dequant = self.weight.to(target_dtype).to(target_device)
             
