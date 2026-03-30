@@ -840,7 +840,7 @@ class IntegratedFluxTransformer2DModel(nn.Module):
                 return self._forward_standard(x, timestep, context, y, guidance, input_dtype)
         
     def _forward_standard(self, x, timestep, context, y, guidance, input_dtype):
-        """Standard forward WITHOUT offloading"""
+        """Standard forward WITHOUT offloading - OPTIMIZED for FP8"""
         
         # moving model to GPU
         if next(self.parameters()).device.type != 'cuda':
@@ -882,13 +882,23 @@ class IntegratedFluxTransformer2DModel(nn.Module):
         ids = torch.cat((txt_ids, img_ids), dim=1)
         pe = self.pe_embedder(ids)
         
-        for block in self.double_blocks:
+        # OPTIMIZED: Added synchronize and cleanup for FP8 models
+        for i, block in enumerate(self.double_blocks):
             img, txt = block(img=img, txt=txt, vec=vec, pe=pe)
+            # Critical for FP8: prevent memory fragmentation
+            if i % 5 == 0:
+                torch.cuda.synchronize()
+                torch.cuda.empty_cache()
         
         img = torch.cat((txt, img), dim=1)
         
-        for block in self.single_blocks:
+        # OPTIMIZED: Same for single blocks
+        for i, block in enumerate(self.single_blocks):
             img = block(img, vec=vec, pe=pe)
+            # Critical for FP8: prevent memory fragmentation
+            if i % 5 == 0:
+                torch.cuda.synchronize()
+                torch.cuda.empty_cache()
         
         img = img[:, txt.shape[1]:, ...]
         img = self.final_layer(img, vec)
