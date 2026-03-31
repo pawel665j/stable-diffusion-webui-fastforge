@@ -9,7 +9,7 @@ set "download_folder=tmp"
 set "extract_folder=extensions-builtin/sd_forge_reactor_zero/"
 set "file_name=reactor_version.py"
 set "folder_path=.\extensions-builtin\sd_forge_reactor_zero\scripts\"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
