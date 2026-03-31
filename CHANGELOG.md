@@ -212,8 +212,6 @@ Moved some modules from pre-installed into prerequiremets for installing before 
 #2025/08/10
 - updated adetailer up to v25.3.0.
 - added back some config files to gitignore.
-- replaced aria2 downloader in CivitAi Browser extension with last aria2c.
-- re-linked aria2c path in main .bat menu to CivitAi Browser extension (for prevent duplicate files in pack).
 - moved all pre-installed and pre-configured extensions to extensions-builtin folder to prevent uninstalling/modyfing/updating by user and for making user-extensions space mor understandable.
 - added more explanations in main .bat menu for some entries
 - updated requirements-versions
@@ -244,7 +242,6 @@ STRONGLY RECOMMENDED TO CLEAR RE-INSTALL DUE TO POSSIBLE ISSUES AFTER UPDATE!
 - changed Memory Optimization profile to ALL VRAM -2Gb Async/CPU for proper memory management by default.
 - small changes and fixes in webui-user file (main .bat menu).
 - enabled back models hashiing for better experience.
-- deleted aria blob for linux out of CivitAi Browser extension due to I'm supporting only Windows.
 - added check and update PIP, if necessary, on every FastForge start.
 - release file size optimizations.
 
@@ -369,7 +366,6 @@ Links provided by my HugginFace cloud folder.
 * added additional upscalers pack download option into main menu/upscalers download
 OLD VERSION USERS CAN ADD NEW MENU BY REPLACING AN OLD START.bat with NEW ONE!
 * added empty Lora folder by default
-* added Civit.Ai extension (https://civitai.com/user/TomDom)
 * reworked RAM optimization profiles (main menu, step (7)):
 - moved to Queue+CPU and Async+CPU profiles as most stable and without RAM/VRAM leak
 OLD VERSION USERS CAN REPLACE PROFILES BY DELETING OLD AND COPYING WEBUI\ram_opt FOLDER!

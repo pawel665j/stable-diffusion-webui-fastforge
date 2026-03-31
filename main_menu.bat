@@ -66,7 +66,7 @@ set "file_name=4xFFHQDAT.pth"
 set "url=https://huggingface.co/datasets/LeeAeron/upscale_models/resolve/main/4xFFHQDAT.pth?download=true"
 set "folder_path=.\models\DAT"
 set "download_folder=models\DAT"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -86,7 +86,7 @@ set "file_name=4xSSDIRDAT.pth"
 set "url=https://huggingface.co/datasets/LeeAeron/upscale_models/resolve/main/4xSSDIRDAT.pth?download=true"
 set "folder_path=.\models\DAT"
 set "download_folder=models\DAT"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -108,7 +108,7 @@ set "download_folder=tmp"
 set "extract_folder=models"
 set "file_name=4xFaceUpDAT.pth"
 set "folder_path=.\models\DAT\"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -142,7 +142,7 @@ set "file_name=IMG2IMG_JuggernautReborn.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/upscale_models/resolve/main/IMG2IMG_JuggernautReborn.safetensors?download=true"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -164,7 +164,7 @@ set "file_name=deepfashion2_yolov8s-seg.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/deepfashion2_yolov8s-seg.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -180,7 +180,7 @@ set "file_name=Eyes.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/Eyes.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -196,7 +196,7 @@ set "file_name=face_yolov8m.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/face_yolov8m.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -212,7 +212,7 @@ set "file_name=face_yolov8n_v2.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/face_yolov8n_v2.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -228,7 +228,7 @@ set "file_name=face_yolov9c.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/face_yolov9c.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -244,7 +244,7 @@ set "file_name=hand_yolov8s.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/hand_yolov8s.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -260,7 +260,7 @@ set "file_name=hand_yolov9c.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/hand_yolov9c.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -276,7 +276,7 @@ set "file_name=person_yolov8m-seg.pt"
 set "url=https://huggingface.co/datasets/LeeAeron/adetailer_models/resolve/main/person_yolov8m-seg.pt?download=true"
 set "folder_path=.\models\adetailer"
 set "download_folder=models\adetailer"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -313,7 +313,7 @@ set "file_name=flux1-dev-bnb-nf4-v2.safetensors"
 set "url=https://huggingface.co/lllyasviel/flux1-dev-bnb-nf4/resolve/main/flux1-dev-bnb-nf4-v2.safetensors"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -365,7 +365,7 @@ set "file_name=flux1-kontext-dev.safetensors"
 set "url=https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev/resolve/main/flux1-kontext-dev.safetensors"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -385,7 +385,7 @@ set "file_name=FLUX.D_Kontext_fp8_e4m3fn.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/FluxKontext/resolve/main/FLUX.D_Kontext_fp8_e4m3fn.safetensors"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -405,7 +405,7 @@ set "file_name=FLUX.D_Kontext_fp8_e5m2.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/FluxKontext/resolve/main/FLUX.D_Kontext_fp8_e5m2.safetensors"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -472,7 +472,7 @@ set "file_name=FLUX.VAE.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.VAE.safetensors?download=true"
 set "folder_path=.\models\vae"
 set "download_folder=models\vae"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -492,7 +492,7 @@ set "file_name=FLUX.Clip.l.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.Clip.l.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -512,7 +512,7 @@ set "file_name=FLUX.Clip.l.Krea.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.Clip.l.Krea.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -532,7 +532,7 @@ set "file_name=FLUX.Clip.l.ViT-L-14-BEST-smooth-GmP-HF-format.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.Clip.l.ViT-L-14-BEST-smooth-GmP-HF-format.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -552,7 +552,7 @@ set "file_name=FLUX.Clip.l.ViT-L-14-TEXT-detail-improved-hiT-GmP-HF.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.Clip.l.ViT-L-14-TEXT-detail-improved-hiT-GmP-HF.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -572,7 +572,7 @@ set "file_name=FLUX.Clip.t5xxl_fp8.e4m3fn.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.Clip.t5xxl_fp8.e4m3fn.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -592,7 +592,7 @@ set "file_name=FLUX.Clip.t5xxl_fp16.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.Clip.t5xxl_fp16.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -612,7 +612,7 @@ set "file_name=FLUX.Clip.t5.v1.1.xxl-encoder_bf16.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/FLUX.Clip.t5.v1.1.xxl-encoder_bf16.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -632,7 +632,7 @@ set "file_name=diffusion_pytorch_model.safetensors"
 set "url=https://huggingface.co/lodestones/Chroma/resolve/main/vae/diffusion_pytorch_model.safetensors"
 set "folder_path=.\backend\huggingface\Chroma\vae"
 set "download_folder=backend\huggingface\Chroma\vae"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -652,7 +652,7 @@ set "file_name=IL.Clip.l.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/IL.Clip.l.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -672,7 +672,7 @@ set "file_name=IL.Clip.g.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_vae_encoders/resolve/main/IL.Clip.g.safetensors?download=true"
 set "folder_path=.\models\text_encoder"
 set "download_folder=models\text_encoder"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -746,7 +746,7 @@ set "file_name=flux1-Canny-Dev_FP8.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_controlnet/resolve/main/flux1-Canny-Dev_FP8.safetensors?download=true"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -794,7 +794,7 @@ set "file_name=flux1-Depth-Dev_FP8.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_controlnet/resolve/main/flux1-Depth-Dev_FP8.safetensors?download=true"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -842,7 +842,7 @@ set "file_name=flux1-Fill-Dev_FP8.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/flux_controlnet/resolve/main/flux1-Fill-Dev_FP8.safetensors?download=true"
 set "folder_path=.\models\Stable-diffusion"
 set "download_folder=models\Stable-diffusion"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -891,7 +891,7 @@ set "download_folder=tmp"
 set "extract_folder=extensions"
 set "file_name=main"
 set "folder_path=.\extensions\sd-webui-prompt-all-in-one\models\models--facebook--mbart-large-50-many-to-many-mmt\refs\"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -927,7 +927,7 @@ set "file_name=IMG2IMG_JuggernautReborn.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/upscale_models/resolve/main/IMG2IMG_JuggernautReborn.safetensors?download=true"
 set "folder_path=.\models\checkpoints"
 set "download_folder=models\checkpoints"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -943,7 +943,7 @@ set "file_name=SD_FX_MoreDetails.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/LoRa/resolve/main/SD/SD_FX_MoreDetails.safetensors?download=true"
 set "folder_path=.\models\Lora"
 set "download_folder=models\Lora"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )
@@ -959,7 +959,7 @@ set "file_name=SDXLrender_v2.0.safetensors"
 set "url=https://huggingface.co/datasets/LeeAeron/LoRa/resolve/main/SD/SDXLrender_v2.0.safetensors?download=true"
 set "folder_path=.\models\Lora"
 set "download_folder=models\Lora"
-set "aria2_path=%~dp0extensions-builtin\sd_forge_civitai_browser_plus\aria2\win\aria2.exe"
+set "aria2_path=%~dp0tools\aria2\win\aria2.exe"
 if not exist "%folder_path%" (
     mkdir "%folder_path%"
 )

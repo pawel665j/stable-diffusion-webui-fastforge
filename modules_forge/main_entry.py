@@ -1192,14 +1192,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "flux_i2i_height", 1200)),             # ui_img2img_height
             gr.update(value=getattr(shared.opts, "flux_t2i_cfg", 1)),                   # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "flux_i2i_cfg", 1)),                   # ui_img2img_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 3.5)), # ui_txt2img_distilled_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 3.5)), # ui_img2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 0.1)), # ui_txt2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 0.1)), # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_sampler", 'Euler')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "flux_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "flux_t2i_scheduler", 'Simple')),      # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "flux_i2i_scheduler", 'Simple')),      # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_cfg", 1.0)),    # ui_txt2img_hr_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 3.5)),  # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 0.1)),  # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "flux_i2i_steps", 20)),  # ui_img2img_steps
     ]
@@ -1220,14 +1220,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "sd_i2i_height", 1200)),                # ui_img2img_height
             gr.update(value=getattr(shared.opts, "sd_t2i_cfg", 7)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "sd_i2i_cfg", 7)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_sampler", 'Euler_Dy')),    # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "sd_i2i_sampler", 'DPM++ 2M')),    # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "sd_t2i_scheduler", 'Exponential')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "sd_i2i_scheduler", 'Align Your Steps')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "sd_t2i_hr_cfg", 7.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_steps", 30)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "sd_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1244,18 +1244,18 @@ def on_preset_change(preset=None):
             gr.update(visible=False, value=total_vram - 1024),                          # ui_forge_inference_memory
             gr.update(value=getattr(shared.opts, "sd_t2i_width", 512)),                 # ui_txt2img_width
             gr.update(value=getattr(shared.opts, "sd_i2i_width", 512)),                 # ui_img2img_width
-            gr.update(value=getattr(shared.opts, "sd_t2i_height", 640)),                # ui_txt2img_height
-            gr.update(value=getattr(shared.opts, "sd_i2i_height", 512)),                # ui_img2img_height
+            gr.update(value=getattr(shared.opts, "sd_t2i_height", 768)),                # ui_txt2img_height
+            gr.update(value=getattr(shared.opts, "sd_i2i_height", 768)),                # ui_img2img_height
             gr.update(value=getattr(shared.opts, "sd_t2i_cfg", 7)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "sd_i2i_cfg", 7)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_sampler", 'Euler a')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "sd_i2i_sampler", 'Euler a')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "sd_t2i_scheduler", 'Automatic')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "sd_i2i_scheduler", 'Automatic')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "sd_t2i_hr_cfg", 7.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "sd_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1276,14 +1276,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "sd_i2i_height", 1200)),                # ui_img2img_height
             gr.update(value=getattr(shared.opts, "sd_t2i_cfg", 7)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "sd_i2i_cfg", 7)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_sampler", 'Euler_Dy')),    # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "sd_i2i_sampler", 'DPM++ 2M')),    # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "sd_t2i_scheduler", 'Exponential')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "sd_i2i_scheduler", 'Align Your Steps')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "sd_t2i_hr_cfg", 7.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_steps", 30)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "sd_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1304,14 +1304,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "sd_i2i_height", 1200)),                # ui_img2img_height
             gr.update(value=getattr(shared.opts, "sd_t2i_cfg", 7)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "sd_i2i_cfg", 7)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_sampler", 'Euler_Dy')),    # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "sd_i2i_sampler", 'DPM++ 2M')),    # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "sd_t2i_scheduler", 'Exponential')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "sd_i2i_scheduler", 'Align Your Steps')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "sd_t2i_hr_cfg", 7.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_steps", 30)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "sd_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1332,14 +1332,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "sd_i2i_height", 1200)),                # ui_img2img_height
             gr.update(value=getattr(shared.opts, "sd_t2i_cfg", 7)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "sd_i2i_cfg", 7)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_sampler", 'Euler_Dy')),    # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "sd_i2i_sampler", 'DPM++ 2M')),    # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "sd_t2i_scheduler", 'Exponential')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "sd_i2i_scheduler", 'Align Your Steps')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "sd_t2i_hr_cfg", 7.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "sd_t2i_steps", 30)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "sd_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1360,14 +1360,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "xl_i2i_height", 1200)),               # ui_img2img_height
             gr.update(value=getattr(shared.opts, "xl_t2i_cfg", 5)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "xl_i2i_cfg", 5)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_sampler", 'Euler_Dy')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "xl_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "xl_t2i_scheduler", 'Exponential')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "xl_i2i_scheduler", 'Karras')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "xl_t2i_hr_cfg", 5.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_steps", 30)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "xl_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1384,20 +1384,20 @@ def on_preset_change(preset=None):
             gr.update(visible=True, value='Queue'),                                     # ui_forge_async_loading
             gr.update(visible=False, value='CPU'),                                      # ui_forge_pin_shared_memory
             gr.update(visible=True, value=model_mem),                                   # ui_forge_inference_memory
-            gr.update(value=getattr(shared.opts, "xl_t2i_width", 896)),                 # ui_txt2img_width
-            gr.update(value=getattr(shared.opts, "xl_i2i_width", 1024)),                # ui_img2img_width
-            gr.update(value=getattr(shared.opts, "xl_t2i_height", 1152)),               # ui_txt2img_height
+            gr.update(value=getattr(shared.opts, "xl_t2i_width", 768)),                 # ui_txt2img_width
+            gr.update(value=getattr(shared.opts, "xl_i2i_width", 768)),                # ui_img2img_width
+            gr.update(value=getattr(shared.opts, "xl_t2i_height", 1024)),               # ui_txt2img_height
             gr.update(value=getattr(shared.opts, "xl_i2i_height", 1024)),               # ui_img2img_height
             gr.update(value=getattr(shared.opts, "xl_t2i_cfg", 5)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "xl_i2i_cfg", 5)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_sampler", 'Euler a')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "xl_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "xl_t2i_scheduler", 'Automatic')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "xl_i2i_scheduler", 'Karras')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "xl_t2i_hr_cfg", 5.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "xl_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1418,14 +1418,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "xl_i2i_height", 1200)),               # ui_img2img_height
             gr.update(value=getattr(shared.opts, "xl_t2i_cfg", 5)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "xl_i2i_cfg", 5)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_sampler", 'Euler_Dy')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "xl_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "xl_t2i_scheduler", 'Exponential')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "xl_i2i_scheduler", 'Karras')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "xl_t2i_hr_cfg", 5.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_steps", 30)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "xl_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1446,14 +1446,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "xl_i2i_height", 1200)),               # ui_img2img_height
             gr.update(value=getattr(shared.opts, "xl_t2i_cfg", 5)),                     # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "xl_i2i_cfg", 5)),                     # ui_img2img_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_distilled_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_img2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_sampler", 'Euler_Dy')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "xl_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "xl_t2i_scheduler", 'Exponential')),     # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "xl_i2i_scheduler", 'Karras')),     # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "xl_t2i_hr_cfg", 5.0)),  # ui_txt2img_hr_cfg
-            gr.update(visible=False, value=3.5),                                        # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=False, value=0.1),                                        # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "xl_t2i_steps", 30)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "xl_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1474,14 +1474,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "flux_i2i_height", 1200)),             # ui_img2img_height
             gr.update(value=getattr(shared.opts, "flux_t2i_cfg", 1)),                   # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "flux_i2i_cfg", 1)),                   # ui_img2img_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 3.5)), # ui_txt2img_distilled_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 3.5)), # ui_img2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 0.1)), # ui_txt2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 0.1)), # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_sampler", 'Euler')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "flux_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "flux_t2i_scheduler", 'Simple')),      # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "flux_i2i_scheduler", 'Simple')),      # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_cfg", 1.0)),    # ui_txt2img_hr_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 3.5)),  # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 0.1)),  # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "flux_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1499,19 +1499,19 @@ def on_preset_change(preset=None):
             gr.update(visible=False, value='CPU'),                                       # ui_forge_pin_shared_memory
             gr.update(visible=True, value=model_mem),                                   # ui_forge_inference_memory
             gr.update(value=getattr(shared.opts, "flux_t2i_width", 896)),               # ui_txt2img_width
-            gr.update(value=getattr(shared.opts, "flux_i2i_width", 1024)),              # ui_img2img_width
+            gr.update(value=getattr(shared.opts, "flux_i2i_width", 896)),              # ui_img2img_width
             gr.update(value=getattr(shared.opts, "flux_t2i_height", 1152)),             # ui_txt2img_height
-            gr.update(value=getattr(shared.opts, "flux_i2i_height", 1024)),             # ui_img2img_height
+            gr.update(value=getattr(shared.opts, "flux_i2i_height", 1152)),             # ui_img2img_height
             gr.update(value=getattr(shared.opts, "flux_t2i_cfg", 1)),                   # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "flux_i2i_cfg", 1)),                   # ui_img2img_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 3.5)), # ui_txt2img_distilled_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 3.5)), # ui_img2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 0.1)), # ui_txt2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 0.1)), # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_sampler", 'Euler')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "flux_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "flux_t2i_scheduler", 'Simple')),      # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "flux_i2i_scheduler", 'Simple')),      # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_cfg", 1.0)),    # ui_txt2img_hr_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 3.5)),  # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 0.1)),  # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "flux_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1532,14 +1532,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "flux_i2i_height", 1200)),             # ui_img2img_height
             gr.update(value=getattr(shared.opts, "flux_t2i_cfg", 1)),                   # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "flux_i2i_cfg", 1)),                   # ui_img2img_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 3.5)), # ui_txt2img_distilled_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 3.5)), # ui_img2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 0.1)), # ui_txt2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 0.1)), # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_sampler", 'Euler')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "flux_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "flux_t2i_scheduler", 'Simple')),      # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "flux_i2i_scheduler", 'Simple')),      # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_cfg", 1.0)),    # ui_txt2img_hr_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 3.5)),  # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 0.1)),  # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "flux_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1560,14 +1560,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "flux_i2i_height", 1200)),             # ui_img2img_height
             gr.update(value=getattr(shared.opts, "flux_t2i_cfg", 1)),                   # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "flux_i2i_cfg", 1)),                   # ui_img2img_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 3.5)), # ui_txt2img_distilled_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 3.5)), # ui_img2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 0.1)), # ui_txt2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 0.1)), # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_sampler", 'Euler')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "flux_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "flux_t2i_scheduler", 'Simple')),      # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "flux_i2i_scheduler", 'Simple')),      # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_cfg", 1.0)),    # ui_txt2img_hr_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 3.5)),  # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 0.1)),  # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "flux_i2i_steps", 20)),  # ui_img2img_steps
         ]
@@ -1590,14 +1590,14 @@ def on_preset_change(preset=None):
             gr.update(value=getattr(shared.opts, "flux_i2i_height", 1200)),             # ui_img2img_height
             gr.update(value=getattr(shared.opts, "flux_t2i_cfg", 1)),                   # ui_txt2img_cfg
             gr.update(value=getattr(shared.opts, "flux_i2i_cfg", 1)),                   # ui_img2img_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 3.5)), # ui_txt2img_distilled_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 3.5)), # ui_img2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_d_cfg", 0.1)), # ui_txt2img_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_i2i_d_cfg", 0.1)), # ui_img2img_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_sampler", 'Euler')),         # ui_txt2img_sampler
             gr.update(value=getattr(shared.opts, "flux_i2i_sampler", 'Euler')),         # ui_img2img_sampler
             gr.update(value=getattr(shared.opts, "flux_t2i_scheduler", 'Simple')),      # ui_txt2img_scheduler
             gr.update(value=getattr(shared.opts, "flux_i2i_scheduler", 'Simple')),      # ui_img2img_scheduler
             gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_cfg", 1.0)),    # ui_txt2img_hr_cfg
-            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 3.5)),  # ui_txt2img_hr_distilled_cfg
+            gr.update(visible=True, value=getattr(shared.opts, "flux_t2i_hr_d_cfg", 0.1)),  # ui_txt2img_hr_distilled_cfg
             gr.update(value=getattr(shared.opts, "flux_t2i_steps", 20)),  # ui_txt2img_steps
             gr.update(value=getattr(shared.opts, "flux_i2i_steps", 20)),  # ui_img2img_steps
     ]

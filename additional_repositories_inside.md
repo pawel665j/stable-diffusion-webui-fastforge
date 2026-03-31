@@ -27,7 +27,6 @@ These extensions are pre-installed and configured for convenience. Updates must 
 | [altoiddealer/--sd-webui-ar-plusplus](https://github.com/altoiddealer/--sd-webui-ar-plusplus) | Aspect ratio control extension |
 | [silvertuanzi/advanced_euler_sampler_extension](https://github.com/silvertuanzi/advanced_euler_sampler_extension) | Advanced Euler sampler |
 | [amadeus-ai/img2img-hires-fix](https://github.com/amadeus-ai/img2img-hires-fix) | Fixes for img2img high-res generation |
-| [Civitai Browser Extension](https://civitai.com/models/151467/civitai-browser-or-sd-webui-extension) | Civitai model browser integration |
 | [Haoming02/sd-forge-couple](https://github.com/Haoming02/sd-forge-couple) | Couple generation extension |
 | [ZhUyU1997/open-pose-editor](https://github.com/ZhUyU1997/open-pose-editor) | OpenPose editor for pose control |
 | [muerrilla/sd-webui-detail-daemon](https://github.com/muerrilla/sd-webui-detail-daemon) | Detail enhancement daemon |
