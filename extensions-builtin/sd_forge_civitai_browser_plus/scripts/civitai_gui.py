@@ -1012,9 +1012,9 @@ def on_ui_tabs():
         )
 
     if ver_bool:
-        tab_name = "CivitAI Browser+"
+        tab_name = "CivitAI Browser"
     else:
-        tab_name = "Civitai Browser+"
+        tab_name = "Civitai Browser"
     
     return (civitai_interface, tab_name, "civitai_interface"),
 
